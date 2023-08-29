@@ -1,4 +1,21 @@
 /* assets/style.css */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
 .button {
   display: inline-block;
   padding: 15px 30px; /* Increased padding for a bigger button */
