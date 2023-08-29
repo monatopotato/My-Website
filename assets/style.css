@@ -1,16 +1,17 @@
 /* assets/style.css */
 .button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Increased padding for a bigger button */
   background-color: #007bff;
   color: #fff;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  margin: 10px;
-  text-decoration: none;
+  font-size: 18px; /* Slightly larger font size */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s, transform 0.2s;
 }
+
 .button:hover {
   background-color: #0056b3;
+  transform: scale(1.05); /* Slight scaling effect on hover */
 }
