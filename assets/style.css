@@ -38,7 +38,7 @@ h1 {
   display: inline-block;
   width: 200px; /* Set the width and height of your image */
   height: 50px;
-  background-image: url('Stanford-pic.png'); /* Replace with your image path */
+  background-image: src="stanford-pic.png"; /* Replace with your image path */
   background-size: cover; /* Ensure the image covers the entire button */
   text-indent: -9999px; /* Hide text content */
 }
