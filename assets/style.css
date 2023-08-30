@@ -4,7 +4,7 @@
   padding: 20px 0; /* Add some padding for spacing */
 }
 
-h1 {
+.header h1 {
   font-size: 36px;
   color: #333;
 }
