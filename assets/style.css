@@ -1,4 +1,14 @@
 /* assets/style.css */
+.header {
+  text-align: center; /* Center-align the text */
+  padding: 20px 0; /* Add some padding for spacing */
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -9,11 +19,6 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
-}
-
-h1 {
-  font-size: 36px;
-  color: #333;
 }
 
 .button {
