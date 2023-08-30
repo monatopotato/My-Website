@@ -39,7 +39,6 @@ body {
   transform: scale(1.05); /* Slight scaling effect on hover */
 }
 
-/* assets/style.css */
 .button-image {
   display: inline-block;
   width: 350px; /* Set the initial width of your image */
@@ -54,5 +53,11 @@ body {
 .button-image:hover {
   transform: scale(1.05); /* Slight scaling on hover */
   filter: brightness(85%); /* Gray highlight on hover */
+}
+
+.caption {
+  text-align: center;
+  margin-top: 10px; /* Add some spacing between button and caption */
+  font-size: 14px; /* Adjust the font size as needed */
 }
 
