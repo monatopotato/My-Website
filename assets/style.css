@@ -41,8 +41,8 @@ body {
 /* assets/style.css */
 .button-image {
   display: inline-block;
-  width: 400px; /* Set the initial width of your image */
-  height: 400px;
+  width: 350px; /* Set the initial width of your image */
+  height: 350px;
   background-image: url('../assets/images/Stanford-pic.png'); /* Relative path to your image */
   background-size: cover;
   text-indent: -9999px;
