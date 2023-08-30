@@ -50,10 +50,13 @@ body {
   transition: transform 0.2s, filter 0.2s; /* Add transition effects */
 }
 
-.button-image:hover + .caption {
-  font-size: 18px; /* Increase font size on hover */
+.button-image:hover {
   transform: scale(1.05); /* Slight scaling on hover */
   filter: brightness(85%); /* Gray highlight on hover */
+}
+
+.button-image:hover + .caption {
+  font-size: 18px; /* Increase font size on hover */
 }
 
 .caption {
