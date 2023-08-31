@@ -2,7 +2,7 @@
   text-align: center;
   width: 100%;
   background-color: black;
-  padding: 400px 0;
+  padding: 500px 0;
 }
 
 .content-container {
@@ -15,7 +15,6 @@ h1 {
 }
 
 .scroll-text {
-  text-align: center;
   font-size: 18px;
   margin-top: 500px; 
   margin-bottom: 0px;
