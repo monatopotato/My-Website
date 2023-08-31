@@ -17,12 +17,12 @@ h1 {
 .scroll-text {
   display: inline-block;
   width: 500px; 
-  height: 200px;
+  height: 250px;
   font-size: 18px;
   text-align: center;
   background-color: black;
   margin-top: 0px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 
 .scroll-text:hover{
