@@ -16,6 +16,12 @@ h1 {
   color: #333;
 }
 
+.scroll-text {
+  font-size: 18px; /* Adjust the font size as needed */
+  color: white;
+  margin-top: 10px; /* Add some spacing from the title */
+}
+
 body {
   font-family: Arial, sans-serif;
   text-align: center;
