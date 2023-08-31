@@ -17,11 +17,13 @@ h1 {
 .scroll-text {
   font-size: 18px;
   margin-top: 500px; 
+  margin-bottom: 0px;
+  width: 50%
+
 }
 
 .scroll-text:hover{
   transform: scale(1.05);
-  width: 100%
 }
 
 body {
