@@ -1,4 +1,3 @@
-/* assets/style.css */
 .header {
   text-align: center;
   padding: 600px 0;
@@ -7,7 +6,7 @@
 }
 
 .content-container {
-  padding-top: 50px; /* Add padding to create the scroll effect */
+  padding-top: 50px;
 }
 
 h1 {
@@ -16,8 +15,9 @@ h1 {
 }
 
 .scroll-text {
-  font-size: 18px; /* Adjust the font size as needed */
-  margin-top: 500px; /* Add some spacing from the title */
+  font-size: 18px;
+  margin-top: 500px; 
+  transform: scale(1.05);
 }
 
 body {
@@ -35,39 +35,39 @@ body {
 
 .button {
   display: inline-block;
-  padding: 15px 30px; /* Increased padding for a bigger button */
+  padding: 15px 30px;
   background-color: #007bff;
   color: #fff;
   border: none;
   cursor: pointer;
-  font-size: 18px; /* Slightly larger font size */
-  border-radius: 8px; /* Rounded corners */
+  font-size: 18px;
+  border-radius: 8px; 
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .button:hover {
   background-color: #0056b3;
-  transform: scale(1.05); /* Slight scaling effect on hover */
+  transform: scale(1.05); 
 }
 
 .button-image {
   display: inline-block;
-  width: 350px; /* Set the initial width of your image */
+  width: 350px; 
   height: 350px;
-  background-image: url('../assets/images/Stanford-pic.png'); /* Relative path to your image */
+  background-image: url('../assets/images/Stanford-pic.png');
   background-size: cover;
   text-indent: -9999px;
-  border-radius: 10px; /* Rounded edges */
-  transition: transform 0.2s, filter 0.2s; /* Add transition effects */
+  border-radius: 10px; 
+  transition: transform 0.2s, filter 0.2s; 
 }
 
 .button-image:hover {
-  transform: scale(1.05); /* Slight scaling on hover */
-  filter: brightness(85%); /* Gray highlight on hover */
+  transform: scale(1.05); 
+  filter: brightness(85%); 
 }
 
 .button-image:hover + .caption {
-  font-size: 18px; /* Increase font size on hover */
+  font-size: 18px; 
 }
 
 .caption {
@@ -75,5 +75,5 @@ body {
   margin-top: 14px;
   font-size: 14px;
   font-weight: bold;
-  transition: font-size 0.2s; /* Add transition effect for font size */
+  transition: font-size 0.2s; 
 }
