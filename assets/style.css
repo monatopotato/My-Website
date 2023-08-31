@@ -1,6 +1,6 @@
 .header {
   text-align: center;
-  padding: 600px 0;
+  padding: 300px 0;
   width: 100%;
   background-color: black;
 }
@@ -21,6 +21,7 @@ h1 {
 
 .scroll-text:hover{
   transform: scale(1.05);
+  width: 100%
 }
 
 body {
