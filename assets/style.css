@@ -12,12 +12,12 @@
 
 h1 {
   font-size: 36px;
-  color: #333;
+  color: #FFFFFF;
 }
 
 .scroll-text {
   font-size: 18px; /* Adjust the font size as needed */
-  margin-top: 10px; /* Add some spacing from the title */
+  margin-top: 500px; /* Add some spacing from the title */
 }
 
 body {
