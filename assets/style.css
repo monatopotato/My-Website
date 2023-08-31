@@ -2,7 +2,9 @@
 .header {
   text-align: center;
   padding: 600px 0;
+  width: 100%;
   background-color: black;
+  color: white;
 }
 
 .content-container {
