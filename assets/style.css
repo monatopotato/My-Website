@@ -1,11 +1,14 @@
 /* assets/style.css */
 .header {
-  text-align: center; /* Center-align the text */
-  top: 0px;
-  padding: 20px; /* Add some padding for spacing */
+  text-align: center;
+  padding: 20px 0;
 }
 
-.header h1 {
+.content-container {
+  padding-top: 50px; /* Add padding to create the scroll effect */
+}
+
+h1 {
   font-size: 36px;
   color: #333;
 }
@@ -62,7 +65,8 @@ body {
 
 .caption {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 14px;
+  font-weight: bold;
   transition: font-size 0.2s; /* Add transition effect for font size */
 }
