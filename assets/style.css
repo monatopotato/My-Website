@@ -11,7 +11,7 @@
 h1 {
   font-size: 36px;
   color: #FFFFFF;
-  padding: 550px 0;
+  padding: 500px 0;
 }
 
 .scroll-text {
@@ -21,8 +21,8 @@ h1 {
   font-size: 18px;
   text-align: center;
   background-color: black;
-  margin-top: 400px;
-  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 100px;
 }
 
 .scroll-text:hover{
