@@ -1,28 +1,36 @@
 .header {
-  text-align: center;
-  width: 100%;
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: black;
 }
 
 .content-container {
-  padding-top: 50px;
+  padding-top: 5%; /* Use percentages for padding */
 }
 
 h1 {
-  font-size: 36px;
-  color: #FFFFFF;
-  padding: 500px 0;
+  font-size: 4vw; 
+  color: black;
+  margin: 0; 
 }
 
 .scroll-text {
-  display: inline-block;
-  width: 500px; 
-  height: 250px;
-  font-size: 18px;
+  width: 80%; 
+  height: auto; 
+  font-size: 1.5vw;
   text-align: center;
-  background-color: black;
-  margin-top: 0px;
-  margin-bottom: 25px;
+  background-color: transparent;
+  margin-top: 60vh;
+  margin-bottom: -20vh;
+  opacity: 1;
+  transition: opacity 0.5s; 
+}
+
+.fade-out {
+  opacity: 0;
 }
 
 .scroll-text:hover{
@@ -54,20 +62,34 @@ body {
   transition: background-color 0.3s, transform 0.2s;
 }
 
+.button-container {
+  display: flex; 
+  justify-content: center; 
+}
+
+.caption-container {
+  width: 350px; 
+  margin: auto; 
+}
+
 .button:hover {
   background-color: #0056b3;
   transform: scale(1.05); 
 }
 
 .button-image {
-  display: inline-block;
-  width: 350px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 350px;
   height: 350px;
   background-image: url('../assets/images/Stanford-pic.png');
   background-size: cover;
-  text-indent: -9999px;
-  border-radius: 10px; 
-  transition: transform 0.2s, filter 0.2s; 
+  border-radius: 10px;
+  transition: transform 0.2s, filter 0.2s;
+  margin: 10px;
+  position: relative;
 }
 
 .button-image:hover {
@@ -75,14 +97,18 @@ body {
   filter: brightness(85%); 
 }
 
-.button-image:hover + .caption {
-  font-size: 18px; 
+.button-image:hover .caption {
+  opacity: 1;
 }
 
 .caption {
-  text-align: center;
-  margin-top: 14px;
-  font-size: 14px;
+  background-color: black;
+  color: white;
   font-weight: bold;
-  transition: font-size 0.2s; 
+  font-size: 14px;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
