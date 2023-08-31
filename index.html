@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="header">
-    <h1>Welcome to My Website!</h1>
+    <h1><span>Welcome to My Website!</span></h1>
     <p class="scroll-text">\/ Scroll to View More \/</p>
   </div>
   
@@ -24,11 +24,27 @@
     </div>
   </div>
   <script>
+    const titleElement = document.querySelector('.header h1 span');
+    const titleText = titleElement.textContent;
+    titleElement.textContent = ''; 
+
+    let index = 0;
+    const typingInterval = 100; 
+
+    function typeNextLetter() {
+      if (index < titleText.length) {
+        titleElement.textContent += titleText[index];
+        index++;
+        setTimeout(typeNextLetter, typingInterval);
+      }
+    }
+
+    typeNextLetter();
+
     window.addEventListener('scroll', function() {
       const scrollText = document.querySelector('.scroll-text');
       if (scrollText) {
         const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
         const fadeDistance = 100; 
         
         const opacity = Math.max(0, 1 - (scrollPosition / fadeDistance));
