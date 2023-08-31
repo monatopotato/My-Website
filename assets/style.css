@@ -106,6 +106,30 @@ body::-webkit-scrollbar {
   opacity: 1;
 }
 
+.button2-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  background-image: url('../assets/images/model-image.png');
+  background-size: cover;
+  border-radius: 10px;
+  transition: transform 0.2s, filter 0.2s;
+  margin: 10px;
+  position: relative;
+}
+
+.button2-image:hover {
+  transform: scale(1.05); 
+  filter: brightness(85%); 
+}
+
+.button2-image:hover .caption {
+  opacity: 1;
+}
+
 .caption {
   background-color: black;
   color: white;
