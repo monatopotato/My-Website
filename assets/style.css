@@ -17,6 +17,9 @@ h1 {
 .scroll-text {
   font-size: 18px;
   margin-top: 500px; 
+}
+
+.scroll-text:hover{
   transform: scale(1.05);
 }
 
