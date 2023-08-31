@@ -2,7 +2,7 @@
   text-align: center;
   width: 100%;
   background-color: black;
-  padding: 600px 0;
+  padding: 550px 0;
 }
 
 .content-container {
@@ -18,8 +18,9 @@ h1 {
   font-size: 18px;
   text-align: center;
   background-color: black;
-  margin-top: 200px;
+  margin-top: 400px;
   margin-bottom: 0px;
+  width:500px;
 }
 
 .scroll-text:hover{
