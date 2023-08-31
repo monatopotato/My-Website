@@ -1,6 +1,5 @@
 .header {
   text-align: center;
-  padding: 300px 0;
   width: 100%;
   background-color: black;
 }
@@ -12,6 +11,7 @@
 h1 {
   font-size: 36px;
   color: #FFFFFF;
+  padding: 300px 0;
 }
 
 .scroll-text {
