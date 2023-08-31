@@ -3,10 +3,6 @@
   width: 100%;
 }
 
-.header img {
-  max-width: 100%; /* Ensure the image doesn't exceed its container */
-}
-
 .content-container {
   padding-top: 50px;
 }
