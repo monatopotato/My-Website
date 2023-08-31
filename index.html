@@ -10,6 +10,14 @@
   <div class="header">
     <h1><span>Welcome to My Website!</span></h1>
     <p class="scroll-text">\/ Scroll to View More \/</p>
+    <button id="info-button">
+      <img src="assets/images/info-button.jpg" alt="Info" />
+    </button>
+  </div>
+
+  <div class="info-panel" id="info-panel">
+    <p>Authors: Manato Ogawa</p>
+    <p>Contact: manatoo57324@gmail.com</p>
   </div>
   
   <div class="content-container">
@@ -49,6 +57,19 @@
         
         const opacity = Math.max(0, 1 - (scrollPosition / fadeDistance));
         scrollText.style.opacity = opacity;
+      }
+    });
+
+    const infoButton = document.getElementById('info-button');
+    const infoPanel = document.getElementById('info-panel');
+
+    infoButton.addEventListener('click', () => {
+      infoPanel.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!infoPanel.contains(event.target) && !infoButton.contains(event.target)) {
+        infoPanel.classList.remove('show');
       }
     });
   </script>
