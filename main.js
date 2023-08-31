@@ -1,197 +1,66 @@
-/*jshint esversion:6*/
 
-$(function () {
-    const video = $("video")[0];
+html, body {
+    background-color: black;
+    color: white;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
 
-    var model;
-    var cameraMode = "environment"; // or "user"
+body video {
+    transition: filter 250ms linear;
+}
 
-    const startVideoStreamPromise = navigator.mediaDevices
-        .getUserMedia({
-            audio: false,
-            video: {
-                facingMode: cameraMode
-            }
-        })
-        .then(function (stream) {
-            return new Promise(function (resolve) {
-                video.srcObject = stream;
-                video.onloadeddata = function () {
-                    video.play();
-                    resolve();
-                };
-            });
-        });
+body.loading video {
+    filter: grayscale(1) brightness(0.25);
+}
 
-    var publishable_key = "rf_byHGiu7XF4R00aPJQWDhZFhG0Zv1";
-    var toLoad = {
-        model: "parking-space-occupancy-model",
-        version: 2
-    };
+body.loading:before {
+    content: "Loading Model...";
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    font-size: 3em;
+    font-weight: bold;
+    z-index: 100;
+}
 
-    const loadModelPromise = new Promise(function (resolve, reject) {
-        roboflow
-            .auth({
-                publishable_key: publishable_key
-            })
-            .load(toLoad)
-            .then(function (m) {
-                model = m;
-                resolve();
-            });
-    });
+html, body, video, canvas {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-    Promise.all([startVideoStreamPromise, loadModelPromise]).then(function () {
-        $("body").removeClass("loading");
-        resizeCanvas();
-        detectFrame();
-    });
+video, canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
-    var canvas, ctx;
-    const font = "16px sans-serif";
+body:after {
+    content: "";
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 150px;
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
 
-    function videoDimensions(video) {
-        // Ratio of the video's intrisic dimensions
-        var videoRatio = video.videoWidth / video.videoHeight;
+#fps {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
 
-        // The width and height of the video element
-        var width = video.offsetWidth,
-            height = video.offsetHeight;
+#fps:empty {
+    display: none;
+}
 
-        // The ratio of the element's width to its height
-        var elementRatio = width / height;
-
-        // If the video element is short and wide
-        if (elementRatio > videoRatio) {
-            width = height * videoRatio;
-        } else {
-            // It must be tall and thin, or exactly equal to the original ratio
-            height = width / videoRatio;
-        }
-
-        return {
-            width: width,
-            height: height
-        };
-    }
-
-    $(window).resize(function () {
-        resizeCanvas();
-    });
-
-    const resizeCanvas = function () {
-        $("canvas").remove();
-
-        canvas = $("<canvas/>");
-
-        ctx = canvas[0].getContext("2d");
-
-        var dimensions = videoDimensions(video);
-
-        console.log(
-            video.videoWidth,
-            video.videoHeight,
-            video.offsetWidth,
-            video.offsetHeight,
-            dimensions
-        );
-
-        canvas[0].width = video.videoWidth;
-        canvas[0].height = video.videoHeight;
-
-        canvas.css({
-            width: dimensions.width,
-            height: dimensions.height,
-            left: ($(window).width() - dimensions.width) / 2,
-            top: ($(window).height() - dimensions.height) / 2
-        });
-
-        $("body").append(canvas);
-    };
-
-    const renderPredictions = function (predictions) {
-        var dimensions = videoDimensions(video);
-
-        var scale = 1;
-
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-        predictions.forEach(function (prediction) {
-            const x = prediction.bbox.x;
-            const y = prediction.bbox.y;
-
-            const width = prediction.bbox.width;
-            const height = prediction.bbox.height;
-
-            // Draw the bounding box.
-            ctx.strokeStyle = prediction.color;
-            ctx.lineWidth = 4;
-            ctx.strokeRect(
-                (x - width / 2) / scale,
-                (y - height / 2) / scale,
-                width / scale,
-                height / scale
-            );
-
-            // Draw the label background.
-            ctx.fillStyle = prediction.color;
-            const textWidth = ctx.measureText(prediction.class).width;
-            const textHeight = parseInt(font, 10); // base 10
-            ctx.fillRect(
-                (x - width / 2) / scale,
-                (y - height / 2) / scale,
-                textWidth + 8,
-                textHeight + 4
-            );
-        });
-
-        predictions.forEach(function (prediction) {
-            const x = prediction.bbox.x;
-            const y = prediction.bbox.y;
-
-            const width = prediction.bbox.width;
-            const height = prediction.bbox.height;
-
-            // Draw the text last to ensure it's on top.
-            ctx.font = font;
-            ctx.textBaseline = "top";
-            ctx.fillStyle = "#000000";
-            ctx.fillText(
-                prediction.class,
-                (x - width / 2) / scale + 4,
-                (y - height / 2) / scale + 1
-            );
-        });
-    };
-
-    var prevTime;
-    var pastFrameTimes = [];
-    const detectFrame = function () {
-        if (!model) return requestAnimationFrame(detectFrame);
-
-        model
-            .detect(video)
-            .then(function (predictions) {
-                requestAnimationFrame(detectFrame);
-                renderPredictions(predictions);
-
-                if (prevTime) {
-                    pastFrameTimes.push(Date.now() - prevTime);
-                    if (pastFrameTimes.length > 30) pastFrameTimes.shift();
-
-                    var total = 0;
-                    _.each(pastFrameTimes, function (t) {
-                        total += t / 1000;
-                    });
-
-                    var fps = pastFrameTimes.length / total;
-                    $("#fps").text(Math.round(fps));
-                }
-                prevTime = Date.now();
-            })
-            .catch(function (e) {
-                console.log("CAUGHT", e);
-                requestAnimationFrame(detectFrame);
-            });
-    };
-});
+#fps:after {
+    content: " fps";
+}
