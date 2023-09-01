@@ -3,18 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .gif-container {
+    max-width: 80%;
+    max-height: 50vh;
+  }
+  
+  .gif-container img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+  }
+</style>
 <link rel="stylesheet" href="assets/style.css">
 <title>Parking Space Model</title>
 </head>
 <body>
   <p>My Parking Space model</p>
-  
-  <div>
-    <div class="button">
-      <a href="live-model.html" class="button">Test Live Model</a>
-    </div>  
+
+  <div class="gif-container">
+    <img src="assets/images/vid.gif" alt="GIF Image">
+    <p>Above is an example of the model.</p>
+    <p>If you want to try it out, click the button below!</p>
+    <p>↓↓</p>
   </div>
-  
+
+  <a href="live-model.html" class="button_model">Test Live Model</a>
+
   <a href="index.html" class="button">Go back to Main Page</a>
 </body>
 </html>
