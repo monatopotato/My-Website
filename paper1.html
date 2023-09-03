@@ -69,6 +69,22 @@
 
       pdfContainer.classList.add('fullscreen');
     });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { 
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { 
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { 
+          document.msExitFullscreen();
+        }
+
+        pdfContainer.classList.remove('fullscreen');
+      }
+    });
   </script>
 </body>
 </html>
