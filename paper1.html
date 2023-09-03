@@ -7,11 +7,11 @@
 <title>Stanford Paper</title>
 <style>
   .pdf-container {
+    position: relative; /* Added */
     width: 100%;
     max-width: 800px;
     height: 800px;
     overflow: auto;
-    position: relative;
   }
 
   .pdf-container embed {
@@ -37,9 +37,8 @@
 
   <div class="pdf-container" id="pdf-container">
     <embed src="pdfs/Stanford-paper.pdf" type="application/pdf">
+    <button class="fullscreen-button" id="fullscreen-button">Fullscreen</button>
   </div>
-
-  <button class="fullscreen-button" id="fullscreen-button">Fullscreen</button>
 
   <a href="index.html" class="button">Go back to Main Page</a>
 
@@ -48,7 +47,7 @@
     const pdfContainer = document.getElementById('pdf-container');
 
     fullscreenButton.addEventListener('click', () => {
-      if (!pdfContainer.classList.contains('fullscreen')) {
+      if (!document.fullscreenElement) {
         if (pdfContainer.requestFullscreen) {
           pdfContainer.requestFullscreen();
         } else if (pdfContainer.mozRequestFullScreen) { 
@@ -58,7 +57,6 @@
         } else if (pdfContainer.msRequestFullscreen) { 
           pdfContainer.msRequestFullscreen();
         }
-        pdfContainer.classList.add('fullscreen');
       } else {
         if (document.exitFullscreen) {
           document.exitFullscreen();
@@ -69,7 +67,6 @@
         } else if (document.msExitFullscreen) { 
           document.msExitFullscreen();
         }
-        pdfContainer.classList.remove('fullscreen');
       }
     });
   </script>
