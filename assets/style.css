@@ -200,3 +200,27 @@ body::-webkit-scrollbar {
   transform: scale(1.05); 
   filter: brightness(85%); 
 }
+
+.button3-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  background-image: url('../assets/images/MyPaper-pic.png');
+  background-size: cover;
+  border-radius: 10px;
+  transition: transform 0.2s, filter 0.2s;
+  margin: 10px;
+  position: relative;
+}
+
+.button3-image:hover {
+  transform: scale(1.05); 
+  filter: brightness(85%); 
+}
+
+.button3-image:hover .caption {
+  opacity: 1;
+}
