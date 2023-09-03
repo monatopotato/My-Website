@@ -22,6 +22,13 @@
     font-size: 24px; 
     font-weight: bold;
   }
+
+  .fullscreen-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
 </style>
 </head>
 <body>
@@ -32,5 +39,22 @@
   </div>
   
   <a href="index.html" class="button">Go back to Main Page</a>
+
+  <script>
+    const fullscreenButton = document.getElementById('fullscreen-button');
+    const pdfContainer = document.querySelector('.pdf-container');
+
+    fullscreenButton.addEventListener('click', () => {
+      if (pdfContainer.requestFullscreen) {
+        pdfContainer.requestFullscreen();
+      } else if (pdfContainer.mozRequestFullScreen) { // Firefox
+        pdfContainer.mozRequestFullScreen();
+      } else if (pdfContainer.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        pdfContainer.webkitRequestFullscreen();
+      } else if (pdfContainer.msRequestFullscreen) { // IE/Edge
+        pdfContainer.msRequestFullscreen();
+      }
+    });
+  </script>
 </body>
 </html>
