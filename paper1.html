@@ -6,12 +6,17 @@
 <link rel="stylesheet" href="assets/style.css">
 <title>Stanford Paper</title>
 <style>
+  body {
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Hide body scroll bars */
+  }
+
   .pdf-container {
-    position: relative; /* Added */
+    position: relative;
     width: 100%;
     max-width: 800px;
-    height: 800px;
-    overflow: auto;
+    height: calc(100vh - 50px); /* Adjust height to fit button */
+    overflow: hidden; /* Hide scroll bars */
   }
 
   .pdf-container embed {
@@ -35,9 +40,10 @@
 <body>
   <p class="heading">Stanford Research Paper</p>
 
+  <button class="fullscreen-button" id="fullscreen-button">Fullscreen</button>
+
   <div class="pdf-container" id="pdf-container">
     <embed src="pdfs/Stanford-paper.pdf" type="application/pdf">
-    <button class="fullscreen-button" id="fullscreen-button">Fullscreen</button>
   </div>
 
   <a href="index.html" class="button">Go back to Main Page</a>
