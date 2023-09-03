@@ -30,23 +30,6 @@
     font-weight: bold;
   }
 
-  .fullscreen-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #9E9E9E;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 8px; 
-    transition: background-color 0.3s, transform 0.2s;
-    margin-bottom: 2vh;
-  }
-
-  .fullscreen-button:hover {
-    background-color: #585858;
-    transform: scale(1.05); 
-  }
 </style>
 </head>
 <body>
@@ -59,53 +42,5 @@
   </div>
 
   <a href="index.html" class="button">Go back to Main Page</a>
-
-  <script>
-    const fullscreenButton = document.getElementById('fullscreen-button');
-    const pdfContainer = document.getElementById('pdf-container');
-    let fullscreen = false;
-
-    fullscreenButton.addEventListener('click', () => {
-      if (!fullscreen) {
-        if (pdfContainer.requestFullscreen) {
-          pdfContainer.requestFullscreen();
-        } else if (pdfContainer.mozRequestFullScreen) { 
-          pdfContainer.mozRequestFullScreen();
-        } else if (pdfContainer.webkitRequestFullscreen) { 
-          pdfContainer.webkitRequestFullscreen();
-        } else if (pdfContainer.msRequestFullscreen) { 
-          pdfContainer.msRequestFullscreen();
-        }
-        fullscreen = true;
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) { 
-          document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { 
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { 
-          document.msExitFullscreen();
-        }
-        fullscreen = false;
-      }
-    });
-
-    // Add an event listener to the document to handle the Escape keypress
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && fullscreen) {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) { 
-          document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { 
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { 
-          document.msExitFullscreen();
-        }
-        fullscreen = false;
-      }
-    });
-  </script>
 </body>
 </html>
