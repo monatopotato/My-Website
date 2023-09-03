@@ -29,11 +29,21 @@
   }
 
   .fullscreen-button {
-    position: absolute;
-    bottom: 1vh;
-    right: 1vw;
-    z-index: 1;
-  }
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px; 
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.fullscreen-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); 
+}
 </style>
 </head>
 <body>
