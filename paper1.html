@@ -11,6 +11,7 @@
     max-width: 800px;
     height: 800px;
     overflow: auto;
+    position: relative;
   }
 
   .pdf-container embed {
@@ -24,8 +25,8 @@
   }
 
   .fullscreen-button {
-    position: fixed;
-    top: 10px;
+    position: absolute; 
+    bottom: 10px;
     right: 10px;
     z-index: 1;
   }
@@ -53,21 +54,10 @@
   <a href="index.html" class="button">Go back to Main Page</a>
 
   <script>
-    const fullscreenButton = document.getElementById('fullscreen-button');
     const pdfContainer = document.getElementById('pdf-container');
 
-    fullscreenButton.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        if (pdfContainer.requestFullscreen) {
-          pdfContainer.requestFullscreen();
-        } else if (pdfContainer.mozRequestFullScreen) { 
-          pdfContainer.mozRequestFullScreen();
-        } else if (pdfContainer.webkitRequestFullscreen) { 
-          pdfContainer.webkitRequestFullscreen();
-        } else if (pdfContainer.msRequestFullscreen) { 
-          pdfContainer.msRequestFullscreen();
-        }
-      } else {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.fullscreenElement === pdfContainer) {
         if (document.exitFullscreen) {
           document.exitFullscreen();
         } else if (document.mozCancelFullScreen) { 
@@ -77,9 +67,9 @@
         } else if (document.msExitFullscreen) { 
           document.msExitFullscreen();
         }
+
+        pdfContainer.classList.remove('fullscreen');
       }
-      
-      pdfContainer.classList.toggle('fullscreen');
     });
   </script>
 </body>
