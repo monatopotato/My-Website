@@ -57,21 +57,17 @@
     const pdfContainer = document.getElementById('pdf-container');
 
     fullscreenButton.addEventListener('click', () => {
-      if (pdfContainer.requestFullscreen) {
-        pdfContainer.requestFullscreen();
-      } else if (pdfContainer.mozRequestFullScreen) { 
-        pdfContainer.mozRequestFullScreen();
-      } else if (pdfContainer.webkitRequestFullscreen) { 
-        pdfContainer.webkitRequestFullscreen();
-      } else if (pdfContainer.msRequestFullscreen) { 
-        pdfContainer.msRequestFullscreen();
-      }
-
-      pdfContainer.classList.add('fullscreen');
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
+      if (!document.fullscreenElement) {
+        if (pdfContainer.requestFullscreen) {
+          pdfContainer.requestFullscreen();
+        } else if (pdfContainer.mozRequestFullScreen) { 
+          pdfContainer.mozRequestFullScreen();
+        } else if (pdfContainer.webkitRequestFullscreen) { 
+          pdfContainer.webkitRequestFullscreen();
+        } else if (pdfContainer.msRequestFullscreen) { 
+          pdfContainer.msRequestFullscreen();
+        }
+      } else {
         if (document.exitFullscreen) {
           document.exitFullscreen();
         } else if (document.mozCancelFullScreen) { 
@@ -81,9 +77,9 @@
         } else if (document.msExitFullscreen) { 
           document.msExitFullscreen();
         }
-
-        pdfContainer.classList.remove('fullscreen');
       }
+      
+      pdfContainer.classList.toggle('fullscreen');
     });
   </script>
 </body>
