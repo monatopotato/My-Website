@@ -11,6 +11,7 @@
     max-width: 800px;
     height: 800px;
     overflow: auto;
+    position: relative;
   }
 
   .pdf-container embed {
@@ -24,8 +25,8 @@
   }
 
   .fullscreen-button {
-    position: fixed;
-    top: 10px;
+    position: absolute;
+    bottom: 10px;
     right: 10px;
     z-index: 1;
   }
@@ -47,16 +48,17 @@
     const pdfContainer = document.getElementById('pdf-container');
 
     fullscreenButton.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        if (document.documentElement.requestFullscreen) {
-          document.documentElement.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) { 
-          document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) { 
-          document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) { 
-          document.documentElement.msRequestFullscreen();
+      if (!pdfContainer.classList.contains('fullscreen')) {
+        if (pdfContainer.requestFullscreen) {
+          pdfContainer.requestFullscreen();
+        } else if (pdfContainer.mozRequestFullScreen) { 
+          pdfContainer.mozRequestFullScreen();
+        } else if (pdfContainer.webkitRequestFullscreen) { 
+          pdfContainer.webkitRequestFullscreen();
+        } else if (pdfContainer.msRequestFullscreen) { 
+          pdfContainer.msRequestFullscreen();
         }
+        pdfContainer.classList.add('fullscreen');
       } else {
         if (document.exitFullscreen) {
           document.exitFullscreen();
@@ -67,6 +69,7 @@
         } else if (document.msExitFullscreen) { 
           document.msExitFullscreen();
         }
+        pdfContainer.classList.remove('fullscreen');
       }
     });
   </script>
