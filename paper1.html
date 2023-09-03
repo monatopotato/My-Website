@@ -15,9 +15,9 @@
   .pdf-container {
     position: relative;
     width: 100%;
-    max-width: 100%; /* Adjust to your preference */
-    height: 85vh; /* Adjust to your preference */
-    overflow: hidden; /* Hide the scrollbar */
+    max-width: 800px; /* Adjust to your preferred width */
+    height: 800px; /* Adjust to your preferred height */
+    overflow: auto; /* Enable scrolling if necessary */
   }
 
   .pdf-container embed {
@@ -47,24 +47,6 @@
     background-color: #585858;
     transform: scale(1.05); 
   }
-
-  /* Go back button styles */
-  .go-back-button {
-    display: block;
-    margin: 20px auto; /* Center the button */
-    text-align: center;
-    text-decoration: none;
-    background-color: #585858;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 18px;
-    transition: background-color 0.3s;
-  }
-
-  .go-back-button:hover {
-    background-color: #9E9E9E;
-  }
 </style>
 </head>
 <body>
@@ -76,7 +58,7 @@
     <embed src="pdfs/Stanford-paper.pdf" type="application/pdf">
   </div>
 
-  <a href="index.html" class="go-back-button">Go back to Main Page</a>
+  <a href="index.html" class="button">Go back to Main Page</a>
 
   <script>
     const fullscreenButton = document.getElementById('fullscreen-button');
